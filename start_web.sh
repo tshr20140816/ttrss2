@@ -9,4 +9,6 @@ export postgres_password=$(echo ${DATABASE_URL} | grep -o '/.\+@' | grep -o ':.\
 export postgres_server=$(echo ${DATABASE_URL} | awk -F'@' '{print $2}' | awk -F':' '{print $1}')
 export postgres_dbname=$(echo ${DATABASE_URL} | awk -F'/' '{print $NF}')
 
+cp config.php www/ttrss/
+
 vendor/bin/heroku-php-apache2 -C apache.conf www
