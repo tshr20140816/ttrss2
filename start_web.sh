@@ -14,7 +14,10 @@ export postgres_dbname=$(echo ${DATABASE_URL} | awk -F'/' '{print $NF}')
 cp config.php www/ttrss/
 
 mkdir -m 777 -p /tmp/lock
-mkdir -m 777 -p /tmp/cache
+mkdir -m 777 -p /tmp/cache/images
+mkdir -m 777 -p /tmp/cache/upload
+mkdir -m 777 -p /tmp/cache/export
+mkdir -m 777 -p /tmp/cache/js
 mkdir -m 777 -p /tmp/feed-icons
 
 vendor/bin/heroku-php-apache2 -C apache.conf www
