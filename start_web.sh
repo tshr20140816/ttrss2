@@ -20,4 +20,16 @@ mkdir -m 777 -p /tmp/cache/export
 mkdir -m 777 -p /tmp/cache/js
 mkdir -m 777 -p /tmp/feed-icons
 
+if [ ! -v BASIC_USER ]; then
+  echo "Error : BASIC_USER not defined."
+  exit
+fi
+
+if [ ! -v BASIC_PASSWORD ]; then
+  echo "Error : BASIC_PASSWORD not defined."
+  exit
+fi
+
+htpasswd -c -b .htpasswd ${BASIC_USER} ${BASIC_PASSWORD}
+
 vendor/bin/heroku-php-apache2 -C apache.conf www
