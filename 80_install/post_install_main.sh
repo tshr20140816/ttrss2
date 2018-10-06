@@ -7,6 +7,7 @@ date
 pushd www
 
 git clone --depth 1 https://git.tt-rss.org/fox/tt-rss.git ttrss
+cp ../config.php ttrss/
 
 git clone --depth 1 https://github.com/phppgadmin/phppgadmin.git phppgadmin
 cp ../config.inc.php phppgadmin/conf/
