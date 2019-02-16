@@ -32,14 +32,15 @@ $xml_text = <<< __HEREDOC__
 <rss version="2.0">
   <channel>
     <title>record count</title>
-    <link>https://www.heroku.com/</link>
+    <link>__LINK__</link>
     <description>none</description>
     <language>ja</language>
-    <item><title>__TITLE__</title><link>https://www.heroku.com/</link><description>__DESCRIPTION__</description><pubDate/></item>
+    <item><title>__TITLE__</title><link>__LINK__</link><description>__DESCRIPTION__</description><pubDate/></item>
   </channel>
 </rss>
 __HEREDOC__;
 
 $xml_text = str_replace('__TITLE__', $count, $xml_text);
 $xml_text = str_replace('__DESCRIPTION__', date('Y/m/d H:i', strtotime('+9 hours')), $xml_text);
+$xml_text = str_replace('__LINK__', 'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/ttrss/', $xml_text);
 echo $xml_text;
