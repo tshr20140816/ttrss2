@@ -2,12 +2,6 @@
 
 $connection_info = parse_url(getenv('DATABASE_URL'));
 
-$pdo = new PDO(
-    "pgsql:host=${connection_info['host']};dbname=" . substr($connection_info['path'], 1),
-    $connection_info['user'],
-    $connection_info['pass']
-);
-
 $sql = <<< __HEREDOC__
 SELECT SUM(T1.reltuples) cnt
   FROM pg_class T1
@@ -18,7 +12,11 @@ SELECT SUM(T1.reltuples) cnt
               )
 __HEREDOC__;
 
-$pdo = $mu_->get_pdo();
+$pdo = new PDO(
+    "pgsql:host=${connection_info['host']};dbname=" . substr($connection_info['path'], 1),
+    $connection_info['user'],
+    $connection_info['pass']
+);
 $count = 0;
 foreach ($pdo->query($sql) as $row) {
     error_log(print_r($row, true));
