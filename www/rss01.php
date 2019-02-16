@@ -31,7 +31,7 @@ $xml_text = <<< __HEREDOC__
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>quota</title>
+    <title>record count</title>
     <link>https://www.heroku.com/</link>
     <description>none</description>
     <language>ja</language>
@@ -41,5 +41,5 @@ $xml_text = <<< __HEREDOC__
 __HEREDOC__;
 
 $xml_text = str_replace('__TITLE__', $count, $xml_text);
-$xml_text = str_replace('__DESCRIPTION__', date(' Y/m/d H:i', strtotime('+9 hours')), $xml_text);
+$xml_text = str_replace('__DESCRIPTION__', date('Y/m/d H:i', strtotime('+9 hours')), $xml_text);
 echo $xml_text;
