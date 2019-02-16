@@ -44,3 +44,5 @@ $xml_text = str_replace('__TITLE__', $count, $xml_text);
 $xml_text = str_replace('__DESCRIPTION__', date('Y/m/d H:i', strtotime('+9 hours')), $xml_text);
 $xml_text = str_replace('__LINK__', 'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/ttrss/', $xml_text);
 echo $xml_text;
+
+error_log("opcache_get_status : " . print_r(opcache_get_status(), true));
