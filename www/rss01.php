@@ -73,7 +73,7 @@ $xml_text = <<< __HEREDOC__
 </rss>
 __HEREDOC__;
 
-$xml_text = str_replace('__TITLE__', $count_record, $xml_text);
+$xml_text = str_replace('__TITLE__', $quota . ' ' . $count_record, $xml_text);
 $xml_text = str_replace('__DESCRIPTION__', date('Y/m/d H:i', strtotime('+9 hours')), $xml_text);
 $xml_text = str_replace('__LINK__', 'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/ttrss/', $xml_text);
 echo $xml_text;
