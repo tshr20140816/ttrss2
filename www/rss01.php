@@ -25,7 +25,32 @@ foreach ($pdo->query($sql) as $row) {
 
 $pdo = null;
 
-$api_key = base64_decode(getenv('HEROKU_API_KEY'));
+$api_key = getenv('HEROKU_API_KEY');
+$url = 'https://api.heroku.com/account';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/vnd.heroku+json; version=3',"Authorization: Bearer ${api_key}"]);
+$res = curl_exec($ch);
+
+$data = json_decode($res, true);
+error_log($log_prefix . '$data : ' . print_r($data, true));
+
+$url = "https://api.heroku.com/accounts/${data['id']}/actions/get-quota";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/vnd.heroku+json; version=3.account-quotas',"Authorization: Bearer ${api_key}"]);
+$res = curl_exec($ch);
+
+$data = json_decode($res, true);
+error_log($log_prefix . '$data : ' . print_r($data, true));
+
+$dyno_used = (int)$data['quota_used'];
+$dyno_quota = (int)$data['account_quota'];
+
+$quota = $dyno_quota - $dyno_used;
+$quota = floor($quota / 86400) . 'd ' . ($quota / 3600 % 24) . 'h ' . ($quota / 60 % 60) . 'm';
+
+error_log($quota);
 
 header('Content-Type: application/xml');
 
