@@ -32,9 +32,10 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/vnd.heroku+json; version=3',"Authorization: Bearer ${api_key}"]);
 $res = curl_exec($ch);
+curl_close($ch);
 
 $data = json_decode($res, true);
-error_log($log_prefix . '$data : ' . print_r($data, true));
+error_log('$data : ' . print_r($data, true));
 
 $url = "https://api.heroku.com/accounts/${data['id']}/actions/get-quota";
 
@@ -42,9 +43,10 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept: application/vnd.heroku+json; version=3.account-quotas',"Authorization: Bearer ${api_key}"]);
 $res = curl_exec($ch);
+curl_close($ch);
 
 $data = json_decode($res, true);
-error_log($log_prefix . '$data : ' . print_r($data, true));
+error_log('$data : ' . print_r($data, true));
 
 $dyno_used = (int)$data['quota_used'];
 $dyno_quota = (int)$data['account_quota'];
