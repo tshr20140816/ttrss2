@@ -17,13 +17,15 @@ $pdo = new PDO(
     $connection_info['user'],
     $connection_info['pass']
 );
-$count = 0;
+$count_record = 0;
 foreach ($pdo->query($sql) as $row) {
     error_log(print_r($row, true));
-    $count = $row['cnt'];
+    $count_record = $row['cnt'];
 }
 
 $pdo = null;
+
+$api_key = base64_decode(getenv('HEROKU_API_KEY'));
 
 header('Content-Type: application/xml');
 
@@ -40,7 +42,7 @@ $xml_text = <<< __HEREDOC__
 </rss>
 __HEREDOC__;
 
-$xml_text = str_replace('__TITLE__', $count, $xml_text);
+$xml_text = str_replace('__TITLE__', $count_record, $xml_text);
 $xml_text = str_replace('__DESCRIPTION__', date('Y/m/d H:i', strtotime('+9 hours')), $xml_text);
 $xml_text = str_replace('__LINK__', 'https://' . getenv('HEROKU_APP_NAME') . '.herokuapp.com/ttrss/', $xml_text);
 echo $xml_text;
