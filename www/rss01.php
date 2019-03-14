@@ -62,9 +62,9 @@ error_log(floor(($dyno_quota - $dyno_used) / 86400));
 error_log($last_day);
 
 if (floor(($dyno_quota - $dyno_used) / 86400) > $last_day) {
-    $quota .= ' OK';
+    $quota .= ' ⭕';
 } else {
-    $quota .= ' NG';
+    $quota .= ' ❌';
 }
 
 error_log($quota);
