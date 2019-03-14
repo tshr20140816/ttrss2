@@ -56,6 +56,14 @@ $dyno_quota = (int)$data['account_quota'];
 $quota = $dyno_quota - $dyno_used;
 $quota = floor($quota / 86400) . 'd ' . ($quota / 3600 % 24) . 'h ' . ($quota / 60 % 60) . 'm';
 
+$last_day = (int)date('d', strtotime('last day of ' . date('Y-m'))) - (int)date('d') + 1;
+
+if (floor($quota / 86400) > $last_day) {
+    $quota .= ' OK';
+} else {
+    $quota .= ' NG';
+}
+
 error_log($quota);
 
 header('Content-Type: application/xml');
