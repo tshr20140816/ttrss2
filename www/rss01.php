@@ -58,6 +58,9 @@ $quota = floor($quota / 86400) . 'd ' . ($quota / 3600 % 24) . 'h ' . ($quota / 
 
 $last_day = (int)date('d', strtotime('last day of ' . date('Y-m'))) - (int)date('d') + 1;
 
+error_log(floor($quota / 86400));
+error_log($last_day);
+
 if (floor($quota / 86400) > $last_day) {
     $quota .= ' OK';
 } else {
