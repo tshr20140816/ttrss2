@@ -165,7 +165,7 @@
 	// *** Other settings (less important) ***
 	// ***************************************
 
-	define('CHECK_FOR_UPDATES', true);
+	define('CHECK_FOR_UPDATES', false);
 	// Check for updates automatically if running Git version
  
 	define('ENABLE_GZIP_OUTPUT', false);
