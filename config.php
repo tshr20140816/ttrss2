@@ -124,7 +124,7 @@
 	define('REG_NOTIFY_ADDRESS', 'user@your.domain.dom');
 	// Email address to send new user notifications to.
 
-	define('REG_MAX_USERS', 10);
+	define('REG_MAX_USERS', 3);
 	// Maximum amount of users which will be allowed to register on this
 	// system. 0 - no limit.
 
