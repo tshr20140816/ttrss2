@@ -69,7 +69,7 @@
 	// Local cache directory for RSS feed content.
 
 	define('ICONS_DIR', "/tmp/feed-icons");
-	define('ICONS_URL', "/tmp/feed-icons");
+	define('ICONS_URL', "/feed-icons");
 	// Local and URL path to the directory, where feed favicons are stored.
 	// Unless you really know what you're doing, please keep those relative
 	// to tt-rss main directory.
