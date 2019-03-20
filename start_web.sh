@@ -35,4 +35,13 @@ fi
 
 htpasswd -c -b .htpasswd ${BASIC_USER} ${BASIC_PASSWORD}
 
+mkdir -p /tmp/usr/lib
+mkdir -p /tmp/usr/modules
+
+cp www/libbrotlicommon.so.1 /tmp/usr/lib/
+cp www/libbrotlienc.so.1 /tmp/usr/lib/
+cp www/mod_brotli.so /tmp/usr/modules/
+
+export LD_LIBRARY_PATH=/tmp/usr/lib
+
 vendor/bin/heroku-php-apache2 -C apache.conf www
