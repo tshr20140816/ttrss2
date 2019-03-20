@@ -36,11 +36,9 @@ fi
 htpasswd -c -b .htpasswd ${BASIC_USER} ${BASIC_PASSWORD}
 
 mkdir -p /tmp/usr/lib
-mkdir -p /tmp/usr/modules
 
 cp lib/libbrotlicommon.so.1 /tmp/usr/lib/
 cp lib/libbrotlienc.so.1 /tmp/usr/lib/
-cp lib/mod_brotli.so /tmp/usr/modules/
 
 export LD_LIBRARY_PATH=/tmp/usr/lib
 
