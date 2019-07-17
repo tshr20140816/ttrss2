@@ -34,8 +34,8 @@ if [ -z "${HOME_IP_ADDRESS}" ]; then
 fi
 
 if [ -v LOGGLY_TOKEN ]; then
-    url="https://logs-01.loggly.com/inputs/${LOGGLY_TOKEN}/tag/${HREOKU_APP_NAME}"
-    curl -H "content-type:text/plain" -d "${HREOKU_APP_NAME} START" ${url}
+    url="https://logs-01.loggly.com/inputs/${LOGGLY_TOKEN}/tag/${HEROKU_APP_NAME}"
+    curl -H "content-type:text/plain" -d "${HEROKU_APP_NAME} START" ${url}
 fi
 
 htpasswd -c -b .htpasswd ${BASIC_USER} ${BASIC_PASSWORD}
