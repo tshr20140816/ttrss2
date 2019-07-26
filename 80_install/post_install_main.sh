@@ -13,7 +13,9 @@ cp ../config.php ttrss/
 
 wait
 cp ../config.inc.php phppgadmin/conf/
-
+mv phppgadmin/include/functions.php phppgadmin/include/functions.php.org
+cp ../functions.php phppgadmin/include/
+diff phppgadmin/include/functions.php.org phppgadmin/include/functions.php
 popd
 
 chmod 755 ./start_web.sh
