@@ -342,6 +342,11 @@
 				if ($tmp) $contents = $tmp;
 			}
 
+			// add begin
+			$contents = str_replace('<link rel="enclosure" href="https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png" type="image/png" length="0" />', '', $contents);
+			error_log($contents);
+			// add end
+
 			return $contents;
 		} else {
 
@@ -435,6 +440,11 @@
 
 				if ($tmp) $data = $tmp;
 			}
+
+			// add begin
+			$data = str_replace('<link rel="enclosure" href="https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png" type="image/png" length="0" />', '', $data);
+			error_log($data);
+			// add end
 
 			return $data;
 		}
