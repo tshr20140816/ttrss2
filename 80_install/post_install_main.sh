@@ -6,9 +6,7 @@ date
 
 pushd www
 
-git clone --depth 1 https://github.com/phppgadmin/phppgadmin.git phppgadmin &
-
-# git clone --depth 1 -b 19.2 https://git.tt-rss.org/fox/tt-rss.git ttrss
+git clone --depth=1 -b REL_5-6-0 https://github.com/phppgadmin/phppgadmin.git phppgadmin &
 git clone --depth 1 -b 19.8 https://git.tt-rss.org/fox/tt-rss.git ttrss
 cp ../config.php ttrss/
 
