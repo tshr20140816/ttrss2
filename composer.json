@@ -4,8 +4,7 @@
     "php": ">=7.3.10",
     "ext-mbstring": "*",
     "ext-apcu": "*",
-    "ext-intl": "*",
-    "ext-mbstring": "*"
+    "ext-intl": "*"
   }
   ,
   "require-dev":
