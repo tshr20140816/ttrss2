@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a016fbc559354e8c46d68469fd3d3bb0",
+    "content-hash": "9eb99d3c5fab740b35a0472c67cca49f",
     "packages": [],
     "packages-dev": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "62a691bf5937d35a7236c581734352208037d710"
+                "reference": "343fa959d4c195beb7febe1996340624baf713b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/62a691bf5937d35a7236c581734352208037d710",
-                "reference": "62a691bf5937d35a7236c581734352208037d710",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/343fa959d4c195beb7febe1996340624baf713b9",
+                "reference": "343fa959d4c195beb7febe1996340624baf713b9",
                 "shasum": ""
             },
             "bin": [
@@ -49,7 +49,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2019-06-13T20:23:59+00:00"
+            "time": "2019-09-27T22:17:17+00:00"
         }
     ],
     "aliases": [],
@@ -59,8 +59,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.3.10",
-        "ext-apcu": "*",
         "ext-mbstring": "*",
+        "ext-apcu": "*",
         "ext-intl": "*"
     },
     "platform-dev": []
