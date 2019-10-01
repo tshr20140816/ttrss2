@@ -58,9 +58,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3.6",
+        "php": ">=7.3.10",
         "ext-apcu": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-intl": "*"
     },
     "platform-dev": []
 }
