@@ -3,8 +3,15 @@
   {
     "php": ">=7.3.10",
     "ext-mbstring": "*",
+    "ext-gd": "*",
     "ext-apcu": "*",
-    "ext-intl": "*"
+    "ext-pcntl": "*",
+    "ext-xmlrpc": "*",
+    "ext-imagick": "*",
+    "ext-soap": "*",
+    "ext-ftp": "*",
+    "ext-intl": "*",
+    "ext-imap": "*"
   }
   ,
   "require-dev":
