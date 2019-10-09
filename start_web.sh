@@ -4,8 +4,6 @@ set -x
 
 export TZ=JST-9
 
-whereis php
-
 export postgres_user=$(echo ${DATABASE_URL} | awk -F':' '{print $2}' | sed -e 's/\///g')
 export postgres_password=$(echo ${DATABASE_URL} | grep -o '/.\+@' | grep -o ':.\+' | sed -e 's/://' | sed -e 's/@//')
 export postgres_server=$(echo ${DATABASE_URL} | awk -F'@' '{print $2}' | awk -F':' '{print $1}')
@@ -16,7 +14,15 @@ mkdir -m 777 -p /tmp/cache/images
 mkdir -m 777 -p /tmp/cache/upload
 mkdir -m 777 -p /tmp/cache/export
 mkdir -m 777 -p /tmp/cache/js
-mkdir -m 777 -p /tmp/feed-icons
+mkdir -m 777 -p www/ttrss/feed-icons
+
+cp www/black.ico www/ttrss/feed-icons/
+cp www/black.ico.br www/ttrss/feed-icons/
+
+pushd www/ttrss/feed-icons
+seq 1 99 | xargs -L 1 -P 7 -I{} ln -s black.ico {}.ico &
+seq 1 99 | xargs -L 1 -P 7 -I{} ln -s black.ico {}.ico.br &
+popd
 
 if [ ! -v BASIC_USER ]; then
   echo "Error : BASIC_USER not defined."
@@ -33,10 +39,10 @@ if [ -z "${HOME_IP_ADDRESS}" ]; then
   HOME_IP_ADDRESS=127.0.0.1
 fi
 
-if [ -v LOGGLY_TOKEN ]; then
-    url="https://logs-01.loggly.com/inputs/${LOGGLY_TOKEN}/tag/${HEROKU_APP_NAME}"
-    curl -H "content-type:text/plain" -d "${HEROKU_APP_NAME} START" ${url}
-fi
+# if [ -v LOGGLY_TOKEN ]; then
+#     url="https://logs-01.loggly.com/inputs/${LOGGLY_TOKEN}/tag/${HEROKU_APP_NAME}"
+#     curl -H "content-type:text/plain" -d "${HEROKU_APP_NAME} START" ${url}
+# fi
 
 htpasswd -c -b .htpasswd ${BASIC_USER} ${BASIC_PASSWORD}
 
