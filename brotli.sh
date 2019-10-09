@@ -8,6 +8,6 @@ brotli -q 11 www/ttrss/css/default.css
 
 ls -lang www/ttrss/css/
 
-ls www/ttrss/js/*.js | xargs -n 1 brotli -q 11
+ls www/ttrss/js/*.js | xargs -n 3 brotli -k -z
 
 ls -lang www/ttrss/js/
