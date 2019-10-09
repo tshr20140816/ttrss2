@@ -6,4 +6,4 @@ chmod +x files/brotli
 
 ldd brotli
 
-ls www/css/*.css
+ls www/ttrss/css/*.css
