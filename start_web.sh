@@ -47,4 +47,7 @@ cp lib/libbrotlienc.so.1 /tmp/usr/lib/
 
 export LD_LIBRARY_PATH=/tmp/usr/lib
 
+chmod +x brotli.sh
+./brotli.sh &
+
 vendor/bin/heroku-php-apache2 -C apache.conf www
