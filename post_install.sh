@@ -25,6 +25,10 @@ brotli -Z www/black.ico
 touch -t 0101010000 www/black.ico
 touch -t 0101010000 www/black.ico.br
 
+brotli -Z www/dot.ico
+touch -t 0101010000 www/dot.ico
+touch -t 0101010000 www/dot.ico.br
+
 time ls www/ttrss/css/*.css | xargs -n 1 brotli -Z
 time ls www/ttrss/themes/*.css | xargs -n 1 brotli -Z
 
