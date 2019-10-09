@@ -18,6 +18,8 @@ cp ../functions.19.8.php ttrss/include/functions.php
 diff ttrss/include/functions.php.org ttrss/include/functions.php
 popd
 
+touch -t 0101010000 www/black.ico
+
 chmod 755 ./start_web.sh
 
 date
