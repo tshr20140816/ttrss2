@@ -18,10 +18,12 @@ mkdir -m 777 -p www/ttrss/feed-icons
 
 cp www/black.ico www/ttrss/feed-icons/
 cp www/black.ico.br www/ttrss/feed-icons/
+cp www/dot.ico www/ttrss/feed-icons/
+cp www/dot.ico.br www/ttrss/feed-icons/
 
 pushd www/ttrss/feed-icons
-seq 1 99 | xargs -L 1 -P 7 -I{} ln -s black.ico {}.ico &
-seq 1 99 | xargs -L 1 -P 7 -I{} ln -s black.ico {}.ico.br &
+seq 1 99 | xargs -L 1 -P 7 -I{} ln -s dot.ico {}.ico &
+seq 1 99 | xargs -L 1 -P 7 -I{} ln -s dot.ico.br {}.ico.br &
 popd
 
 if [ ! -v BASIC_USER ]; then
