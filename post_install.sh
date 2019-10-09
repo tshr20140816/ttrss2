@@ -16,6 +16,7 @@ mv ttrss/include/functions.php ttrss/include/functions.php.org
 # cp ../functions.php ttrss/include/
 cp ../functions.19.8.php ttrss/include/functions.php
 diff ttrss/include/functions.php.org ttrss/include/functions.php
+
 popd
 
 touch -t 0101010000 www/black.ico
