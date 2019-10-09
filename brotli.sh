@@ -2,12 +2,8 @@
 
 set -x
 
-ls www/ttrss/css/*.css
+ls www/ttrss/css/*.css | xargs -n 3 brotli -Z
+ls www/ttrss/themes/*.css | xargs -n 3 brotli -Z
 
-brotli -q 11 www/ttrss/css/default.css
-
-ls -lang www/ttrss/css/
-
-ls www/ttrss/js/*.js | xargs -n 3 brotli -k -Z
-
-ls -lang www/ttrss/js/
+ls www/ttrss/js/*.js | xargs -n 3 brotli -Z
+ls www/ttrss/js/form/*.js | xargs -n 3 brotli -Z
