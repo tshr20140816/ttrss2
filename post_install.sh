@@ -20,6 +20,12 @@ popd
 
 touch -t 0101010000 www/black.ico
 
+time ls www/ttrss/css/*.css | xargs -n 1 brotli -Z
+time ls www/ttrss/themes/*.css | xargs -n 1 brotli -Z
+
+time ls www/ttrss/js/*.js | xargs -n 1 brotli -Z
+time ls www/ttrss/js/form/*.js | xargs -n 1 brotli -Z
+
 chmod 755 ./start_web.sh
 
 date
