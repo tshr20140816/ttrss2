@@ -344,7 +344,7 @@
 
 			// add begin
 			$contents = str_replace('<link rel="enclosure" href="https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png" type="image/png" length="0" />', '', $contents);
-			error_log($contents);
+			// error_log($contents);
 			// add end
 
 			return $contents;
